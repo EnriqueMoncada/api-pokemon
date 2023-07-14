@@ -1,0 +1,114 @@
+form {
+  width: 200px;
+  max-width: 600px;
+  margin: 0 auto 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+ 
+}
+
+input {
+  font-family: 'VT323', monospace;
+  font-size: 28px;
+  width: 100%;
+  padding: 10px;
+  border-style: solid;
+  border-radius: 10px;
+  text-align: center;
+  background:
+  radial-gradient( rgb(255, 255, 255) 75%, rgb(253, 0, 0) 70%) border-box ;
+  background-size: auto 3px;
+  border-radius: 12px;
+  border: 4px solid transparent;
+  border-left-width: 20px;
+  border-right-width: 20px;
+}
+
+.pokeCard {
+  align-items: center;
+  /* Position para que todo lo que este dentro tenga un posicion absoluta y tome en cuenta el pokeCard*/
+  position: relative;
+  /* Con el fit-contente utilizaremos todo el height osea altura disponible pero no mas de la maxima
+     Osea que ira cambiando conforme se vaya agregando por ejemplo si antes estaba un pokemon de un solo tipo pero al estar uno de 2 baje un poco para abajo para añadirlo*/
+  height: fit-content;
+  /* Ponemos la fuente osea tipo de letra que llamamos por url en el html*/
+  font-family: 'VT323', monospace;
+  /* Darle el ancho maximo*/
+  max-width: 300px;
+  /* Bordear bordes*/
+  border-radius: 4px;
+  /* Color a todos los elementos que esten dentro*/
+  color: #000;
+  /* Alinear el texto que tenga en el centro*/
+  text-align: center;
+  /* ponerle como unos margenes invisibles*/
+  padding: 10px;
+  /* Tamaño de margen y el tamaño de margen*/
+  margin: 0 auto;
+  /* El color del fondo*/
+  background-color: #fff;
+  /* Poner el tamaño de las lineas de los bordes el tipo de borde y el color de ellos */
+  border: 1px solid rgb(48, 189, 71);
+  font-size: 25px;
+}
+/* Con el :before creamos un pseudoelemento ose el primero hijo de dicho elemento para añadir cosas esteticas*/
+.pokeCard::before {
+  /* Ponemos un content vacio para que se muestre lo que hagamos*/
+  content: "";
+  /* Se crea un fondo con el radial gradient se da una combinacion de dos colores en este caso negro y transparencia*/
+  background: radial-gradient(rgb(167, 13, 13) 33%, transparent 33%);
+  /* Con esto se le da el tamaño a los puntos*/
+  background-size: 3px 3px;
+  /* Se le da redondeado al borde que sera el del background*/
+  /* Para que el efecto de sombra se ve realista ponerle el mismo borde que tiene la clase padre*/
+  border-radius: 4px;
+  /* altura y ancho en 100% para que ocupe todo sus limites*/
+  height: 100%;
+  width: 100%;
+  /* Para que cambie junto a la pokeCard*/
+  position: absolute;
+  /* Y con esto los movemos un poco para que quede justo debajo y de el efecto de sombra*/
+  left: 10px;
+  top: 10px;
+  /* Para que se muestre por detras de la caja*/
+  z-index: -1;
+}
+
+.imgBox {
+  position: relative;
+  width: 180px;
+  margin: 10px auto;
+}
+
+/* Como sabemos el js crea varios div para cara stats y numero de ese stats para modificarlo simplemente
+    Agarramos la clase del div que los guarda todo y lo ponemos con un div alado para modificar todos los elemento de clase div que contenga*/
+.pokemonStats div {
+  /* Con flex llenamos el espacion disponible respetando los otros elementos y sus valores*/
+  display: flex;
+  /* Ahora con esto distribuye el espacio entre y alrededor de los items flex osea todos los div
+    Y con el space-between deja un espacio igual para cada uno*/
+  justify-content: space-between;
+  /* Y con esto los alineamos con un espacio entre cada una */
+  align-content: space-between;
+  padding: 5px;
+  /* Tamaño de letra*/
+  font-size: 22px;
+}
+
+.pokemonTypes div {
+  padding: 5px;
+  margin: 5px;
+  font-weight: bold;
+  font-size: 30px;
+  border-radius: 4px;
+  /* Ponemos ancho de borde el estilo de borde y el color*/
+  border: 1px dashed black;
+}
+
+.pokeImg {
+  width: 180px;
+  /* Le damos un efecto de redondo alrededor del pokemon*/
+  border-radius: 50%;
+}
